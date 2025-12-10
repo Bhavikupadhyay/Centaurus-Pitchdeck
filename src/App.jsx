@@ -105,7 +105,7 @@ export default function App() {
       
       {/* Navigation */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-stone-200 py-3' : 'bg-transparent py-6'}`}>
-        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+        <div className="w-full mx-auto px-6 flex justify-between items-center">
           <div className="font-bold text-xl tracking-tight flex items-center gap-2 font-earthy">
             <div className="w-8 h-8 bg-emerald-700 rounded-lg flex items-center justify-center text-white shadow-emerald-900/20 shadow-lg">
               <Layers size={18} />
@@ -136,7 +136,7 @@ export default function App() {
       </nav>
 
       {/* Hero Header */}
-      <header className="pt-32 pb-12 px-6 max-w-7xl mx-auto text-center">
+      <header className="pt-32 pb-12 px-6 w-full mx-auto text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-800 text-xs font-bold font-tech uppercase tracking-wider mb-6">
           Workflow Modernization
         </div>
@@ -153,7 +153,7 @@ export default function App() {
       </header>
 
       {/* SECTION 1: PROBLEM -> THE CHALLENGE */}
-      <Section id="problem" className="max-w-7xl mx-auto">
+      <Section id="problem" className="w-full mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
             {/* Removed 'italic' class */}
@@ -230,7 +230,7 @@ export default function App() {
 
       {/* SECTION 2: FUTURE -> THE VISION */}
       <Section id="future" className="bg-white">
-        <div className="max-w-7xl mx-auto text-center mb-16">
+        <div className="w-full mx-auto text-center mb-16">
           <Badge type="tech">Gen AI Enabled</Badge>
           <h2 className="text-3xl md:text-4xl font-bold font-earthy mt-4 mb-6">Strategic Shift: Space-Aware Intelligence</h2>
           <p className="text-lg text-stone-600 max-w-3xl mx-auto font-earthy">
@@ -238,7 +238,7 @@ export default function App() {
           </p>
         </div>
 
-        <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+        <div className="w-full mx-auto grid md:grid-cols-3 gap-8">
           <Card title="The Ops Assistant" icon={Search} type="highlight">
             <p className="mb-4">
               <strong className="font-earthy text-lg">"Given this room photo, what is the cost to furnish it this quarter?"</strong>
@@ -288,7 +288,7 @@ export default function App() {
 
       {/* SECTION 3: TECHNICAL SOLUTION */}
       <Section id="technical" className="bg-stone-900 text-white overflow-hidden">
-        <div className="max-w-7xl mx-auto">
+        <div className="w-full mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12">
             <div>
               <Badge type="tech">Architecture</Badge>
@@ -300,12 +300,67 @@ export default function App() {
           {/* Architecture Diagram */}
           <div className="relative">
              {/* Flow Lines (SVG) */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-30" style={{ zIndex: 0 }}>
-               {/* Simplified connections */}
-               <path d="M 150 120 L 150 180 L 400 180" fill="none" stroke="white" strokeWidth="2" strokeDasharray="5,5" />
-               <path d="M 150 320 L 150 260 L 400 260" fill="none" stroke="white" strokeWidth="2" strokeDasharray="5,5" />
-               <path d="M 600 220 L 750 220" fill="none" stroke="#10b981" strokeWidth="3" />
-            </svg>
+            <svg 
+    className="absolute inset-0 w-full h-full pointer-events-none hidden md:block" 
+    style={{ zIndex: 0 }}
+    viewBox="0 0 100 100" 
+    preserveAspectRatio="none"
+  >
+    <defs>
+      {/* Define the gradient or markers if needed, keeping it simple for now */}
+    </defs>
+
+    {/* 1. Data Unification (Top Left) -> Gen AI (Middle) 
+        Start at x=33 (end of col 1), y=25 (approx height of top box). 
+        Elbow connector: Right -> Down -> Right */}
+    <path 
+      d="M 28 25 H 44 V 50 H 50" 
+      stroke="white" 
+      strokeWidth="2" 
+      strokeDasharray="5,5" 
+      fill="none" 
+      opacity="0.3"
+      vectorEffect="non-scaling-stroke"
+    />
+
+    {/* 2. Spatial Logic (Bottom Left) -> Gen AI (Middle) 
+        Start at x=33 (end of col 1), y=75 (approx height of bottom box). 
+        Elbow connector: Right -> Up -> Right */}
+    <path 
+      d="M 28 75 H 44 V 50 H 50" 
+      stroke="white" 
+      strokeWidth="2" 
+      strokeDasharray="5,5" 
+      fill="none" 
+      opacity="0.3"
+      vectorEffect="non-scaling-stroke"
+    />
+
+    {/* 3. Gen AI (Middle) -> Safety & Access (Right) 
+        Straight horizontal line from x=66 (end of col 2) to x=68 (start of col 3) */}
+    <path 
+      d="M 66 50 L 100 50" 
+      stroke="white" 
+      strokeWidth="2" 
+      strokeDasharray="5,5" 
+      fill="none" 
+      opacity="0.3"
+      vectorEffect="non-scaling-stroke"
+    />
+
+    {/* 4. Data Unification -> Spatial Logic 
+        Vertical line connecting the two left blocks. x=16.5 (center of col 1) */}
+    <path 
+      d="M 16.5 35 V 65" 
+      stroke="white" 
+      strokeWidth="2" 
+      strokeDasharray="5,5" 
+      fill="none" 
+      opacity="0.3"
+      vectorEffect="non-scaling-stroke"
+    />
+  </svg>
+
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
               
@@ -386,7 +441,7 @@ export default function App() {
       </Section>
 
       {/* SECTION 4: TIMELINES & BUSINESS MEASURE */}
-      <Section id="value" className="max-w-7xl mx-auto">
+      <Section id="value" className="w-full mx-auto">
         <div className="mb-12">
             <h2 className="text-3xl font-bold font-earthy mb-4">Roadmap & Business Measures</h2>
             <p className="text-lg text-stone-600 font-earthy">A phased approach to value delivery, minimizing operational disruption while building the intelligence layer.</p>

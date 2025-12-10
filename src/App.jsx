@@ -110,7 +110,7 @@ export default function App() {
             <div className="w-8 h-8 bg-emerald-700 rounded-lg flex items-center justify-center text-white shadow-emerald-900/20 shadow-lg">
               <Layers size={18} />
             </div>
-            <span>Centaurus<span className="text-stone-400 font-light font-tech text-sm ml-2">INTEL</span></span>
+            <span>Centaurus<span className="text-stone-400 font-light font-tech text-sm ml-2">AI Assistant</span></span>
           </div>
           <div className="hidden md:flex gap-1 bg-stone-100/50 p-1 rounded-full">
             {[
@@ -144,7 +144,7 @@ export default function App() {
           From Fragmented Files to <br />
           {/* Removed 'italic' class */}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-700 to-teal-600">
-            Spatial Intelligence
+            Unified Intelligence
           </span>
         </h1>
         <p className="text-xl text-stone-500 max-w-2xl mx-auto leading-relaxed font-earthy">
